@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { 
   StyleSheet, Text, TextInput, 
   View, TouchableOpacity, ScrollView, 
- PhoneImput, Image, AsyncStorage } from 'react-native';
+  ImageBackground, Image, AsyncStorage } from 'react-native';
 import { FontAwesome5, AntDesign } from '@expo/vector-icons';
 import * as ImagePicker from 'expo-image-picker';
 import Constants from 'expo-constants';
@@ -63,17 +63,14 @@ export default class RegisterScreen extends React.Component {
                 </View>
             </View>
         <ScrollView>
-            
-                {image && <Image 
-                        source={{ uri: image }} 
-                        style={{ width: 360, height: 100 }} /> 
-                }
+            <ImageBackground source={{ uri: image }} 
+                        style={{ width: 360, height: 200 }}>
                 <AntDesign style={styles.FontPhoto} 
                     name="user" size={60} color="red" />
                 <Text style={styles.PhotoText} 
-                onPress={this._pickImage}>ADD PROFILE PHOTO</Text> 
-            
-
+                onPress={this._pickImage}>ADD PROFILE PHOTO</Text>
+            </ImageBackground>
+           
             <View style={styles.RegInfoView}>
                 <View style={styles.PlaceView}>
                     <Text>Full Name</Text>
@@ -133,7 +130,7 @@ export default class RegisterScreen extends React.Component {
             <View>
                 <TouchableOpacity onPress={this.onRegisterPress.bind(this)}
                 onPress={() => this.props.navigation.navigate('HomeScreen', {
-                    uri : this.state.uri,
+                    uri : this.state.image,
                     newName: this.state.name,
                     newEmail: this.state.email,
                     newPhone: this.state.phone,
@@ -218,11 +215,11 @@ const styles = StyleSheet.create({
         color: 'red',
         fontSize: 16,
         marginTop: 5,
-        marginBottom: 30,
+        marginBottom: 50,
         alignSelf: 'center'
     },
     RegInfoView: {
-        // marginTop: 10,
+        marginTop: 40,
         marginLeft: 15,
         marginRight: 20,
         marginBottom: 6
