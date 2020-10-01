@@ -4,6 +4,7 @@ import { FontAwesome5, AntDesign, Entypo, Feather, SimpleLineIcons, EvilIcons } 
 import { Avatar } from 'react-native-elements';
 
 function DetailsScreen({ navigation }) {
+    const uri = navigation.getParam('uri');
     const newName = navigation.getParam('newName');
     const newEmail = navigation.getParam('newEmail');
     const newPhone = navigation.getParam('newPhone');
@@ -29,7 +30,7 @@ function DetailsScreen({ navigation }) {
                     size="large"
                     title="JS"
                     rounded
-                    source={require('../../assets/photo/beach.jpg')}
+                    source={{uri:uri}}
                 />
                 <View style={styles.AvaterText}>
                     <Text style={styles.AvaterTextStyle}>{(navigation.getParam('newName', 'username'))}</Text>

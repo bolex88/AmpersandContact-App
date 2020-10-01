@@ -9,7 +9,8 @@ function HomeScreen({  navigation }) {
     const newRole = navigation.getParam('newRole');
     const newEmail = navigation.getParam('newEmail');
     const newPhone = navigation.getParam('newPhone');
-    
+    const uri = navigation.getParam('uri');
+    // console.log(newPhone);
     return (
     <View>
         <View style={styles.NavContainer}>
@@ -19,10 +20,11 @@ function HomeScreen({  navigation }) {
             <View style={styles.FontStyle}>
             <AntDesign name="user" size={25} color="white" 
                 onPress={() => navigation.navigate('DetailsScreen', {
+                     uri: navigation.getParam('uri', 'image'),
                      newName: navigation.getParam('newName', 'username'), 
                      newRole: navigation.getParam('newRole', 'userrole'),
                      newEmail: navigation.getParam('newEmail', 'useremail'),
-                     nawPhone: navigation.getParam('newPhone', 'userphone'),
+                     newPhone: navigation.getParam('newPhone', 'userphone'),
                 })} />
             </View>
         </View>
@@ -36,8 +38,13 @@ function HomeScreen({  navigation }) {
             </View>
 
             <View style={styles.QRView}>
-                <QRCode content={('username', 'userrole', 
-                        'useremail', 'userphone')}/>
+                <QRCode onScan={() => navigation.navigate('Details', {
+                     uri: navigation.getParam('uri', 'image'),
+                     newName: navigation.getParam('newName', 'username'), 
+                     newRole: navigation.getParam('newRole', 'userrole'),
+                     newEmail: navigation.getParam('newEmail', 'useremail'),
+                     newPhone: navigation.getParam('newPhone', 'userphone'),
+                })}/>
                 
             </View>
             <View style={styles.UserView}>
@@ -45,7 +52,7 @@ function HomeScreen({  navigation }) {
                 size="medium"
                 title="MT"
                 rounded
-                source={require('../../assets/photo/beach.jpg')}
+                source={{ uri: uri }}
                 />
             <View style={styles.UserText}>
                 <Text>{(navigation.getParam('newName', 'username'))}</Text>
@@ -85,7 +92,7 @@ const styles = StyleSheet.create({
         color: 'white'
     },
     BodyView: {
-        borderBottomColor: 'lightgray',
+        borderBottomColor: 'white',
         // marginBottom: 40,
         padding: 2,
         borderBottomWidth: 2,

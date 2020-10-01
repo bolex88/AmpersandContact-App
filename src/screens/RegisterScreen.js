@@ -7,8 +7,6 @@ import { FontAwesome5, AntDesign } from '@expo/vector-icons';
 import * as ImagePicker from 'expo-image-picker';
 import Constants from 'expo-constants';
 import * as Permissions from 'expo-permissions';
-import { formatPhoneNumberIntl } from 'react-phone-number-input';
-
 
 export default class RegisterScreen extends React.Component {
     constructor(props) {
@@ -25,18 +23,21 @@ export default class RegisterScreen extends React.Component {
     }
 
   async onRegisterPress() {
-    const { 
+    const {
+            photo, 
             username, 
             useremail, 
             userphone, 
             userrole, 
             socialTW, socialLK } = this.state
+    console.log(photo);
     console.log(username);
     console.log(useremail);
     console.log(userphone);
     console.log(userrole);
     console.log(socialTW);
     console.log(socialLK);
+    await AsyncStorage.setItem("photo", image);
     await AsyncStorage.setItem("username", name);
     await AsyncStorage.setItem("useremail", email);
     await AsyncStorage.setItem("userphone", phone);
@@ -47,7 +48,7 @@ export default class RegisterScreen extends React.Component {
   }
 
   render() {
-    const { image, } = this.state
+    const { image } = this.state
     const { navigation } = this.props.navigation;
     return (
         <View>
@@ -62,12 +63,16 @@ export default class RegisterScreen extends React.Component {
                 </View>
             </View>
         <ScrollView>
-            <View style={styles.FileUpload}>
-                {image && <Image source={{ uri: image }} style={{ width: 400, height: 100 }} /> }
+            
+                {image && <Image 
+                        source={{ uri: image }} 
+                        style={{ width: 360, height: 100 }} /> 
+                }
                 <AntDesign style={styles.FontPhoto} 
-                name="user" size={60} color="red" onPress={this._pickImage} />
-                <Text style={styles.PhotoText} onPress={this._pickImage}>ADD PROFILE PHOTO</Text> 
-            </View>
+                    name="user" size={60} color="red" />
+                <Text style={styles.PhotoText} 
+                onPress={this._pickImage}>ADD PROFILE PHOTO</Text> 
+            
 
             <View style={styles.RegInfoView}>
                 <View style={styles.PlaceView}>
@@ -128,7 +133,7 @@ export default class RegisterScreen extends React.Component {
             <View>
                 <TouchableOpacity onPress={this.onRegisterPress.bind(this)}
                 onPress={() => this.props.navigation.navigate('HomeScreen', {
-                    newImage: this.state.image,
+                    uri : this.state.uri,
                     newName: this.state.name,
                     newEmail: this.state.email,
                     newPhone: this.state.phone,
@@ -200,19 +205,21 @@ const styles = StyleSheet.create({
         fontSize: 20,
         color: 'white'
     },
-    FileUpload: {
-        alignItems: 'center',
-        marginBottom: 20,
-        backgroundColor: 'lightgrey'
-    },
+    // FileUpload: {
+    //     alignItems: 'center',
+    //     marginBottom: 20,
+    //     backgroundColor: 'lightgrey'
+    // },
     FontPhoto: {
-        marginTop: 30
+        marginTop: 30,
+        alignSelf: 'center'
     },
     PhotoText: {
         color: 'red',
         fontSize: 16,
         marginTop: 5,
-        marginBottom: 30
+        marginBottom: 30,
+        alignSelf: 'center'
     },
     RegInfoView: {
         // marginTop: 10,
