@@ -48,12 +48,15 @@ function HomeScreen({  navigation }) {
                 
             </View>
             <View style={styles.UserView}>
-                <Avatar
+                {/* <Avatar
                 size="medium"
                 title="MT"
                 rounded
                 source={{ uri: uri }}
-                />
+                /> */}
+                <Image>
+                    {(navigation.getParam('uri', 'image'))}
+                </Image>
             <View style={styles.UserText}>
                 <Text>{(navigation.getParam('newName', 'username'))}</Text>
                 <Text>{(navigation.getParam('newRole', 'userrole'))}</Text>
