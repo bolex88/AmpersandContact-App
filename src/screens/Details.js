@@ -1,22 +1,23 @@
 import React from 'react';
 import { StyleSheet, View, Text, Image, TouchableOpacity } from 'react-native';
-import { FontAwesome5, AntDesign, Entypo, SimpleLineIcons, EvilIcons } from '@expo/vector-icons';
+import { Ionicons, AntDesign, Entypo, SimpleLineIcons, EvilIcons } from '@expo/vector-icons';
 import { Avatar } from 'react-native-elements';
 
 function Details({ navigation }) {
+    const uri = navigation.getParam('uri');
     const newName = navigation.getParam('newName');
     const newEmail = navigation.getParam('newEmail');
     const newPhone = navigation.getParam('newPhone');
     const newRole = navigation.getParam('newRole');
-    const newSocial = navigation.getParam('newSocial');
-    const newSocial1 = navigation.getParam('newSocial1');
+    // const newSocial = navigation.getParam('newSocial');
+    // const newSocial1 = navigation.getParam('newSocial1');
 
     return (
         <View>
             <View style={styles.NevContainer}>
                 <TouchableOpacity onPress={() => navigation.navigate('HomeScreen')}>
                     <View style={styles.FontStyle}>
-                    <AntDesign name="arrowleft" size={30} color="white" />
+                    <Ionicons name="ios-arrow-round-back" size={40} color="white" />
                     </View>
                 </TouchableOpacity>
                 <View style={styles.ProfText}>
@@ -43,7 +44,7 @@ function Details({ navigation }) {
 
             <View style={styles.ContactsView}>
                 <SimpleLineIcons style={styles.ContactView} name="phone" size={20} color="black"
-                > {(navigation.getParam('newPhon', 'userphone'))}
+                > {(navigation.getParam('newPhone', 'userphone'))}
                 </SimpleLineIcons> 
                 <SimpleLineIcons style={styles.ContactView} name="envelope" size={20} color="black"
                 > {(navigation.getParam('newEmail', 'useremail'))}
