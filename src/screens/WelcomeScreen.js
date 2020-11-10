@@ -3,21 +3,21 @@ import { StyleSheet, Text, View, TouchableOpacity, Image } from 'react-native';
 
 function WelcomeScreen({ navigation }) {
     return (
-        <View>
+        <View style={styles.ContainerView}>
             <View style={styles.imagestyle}>
                 <Image
                     source={require('../../assets/img/imagesLR.jpg')}
                 />
             </View>
-            
-            <View>
-                <Text style={styles.TextStyle}>KEEP IN TOUCH WITH THE PEOPLE OF AMPERSAND</Text>
-            </View>
+            <View style={styles.TextView}>
+                <View>
+                    <Text style={styles.TextStyle}>KEEP IN TOUCH WITH THE PEOPLE OF AMPERSAND</Text>
+                </View>
 
-            <View style={styles.MessageView}>
-                <Text style={styles.MessageStyle}>Sign in or register with your Ampresand email</Text>
+                <View style={styles.MessageView}>
+                    <Text style={styles.MessageStyle}>Sign in or register with your Ampresand email</Text>
+                </View>
             </View>
-
             <View style={styles.LogRegView}>
                 <TouchableOpacity onPress={() => navigation.navigate('RegisterScreen')}>
                   <View>  
@@ -37,38 +37,42 @@ function WelcomeScreen({ navigation }) {
 };
 
 const styles = StyleSheet.create({
+    ContainerView: {
+        flex: 1
+    },
     imagestyle: {
         maxHeight: 240,
         maxWidth: 300,
-        marginBottom: 100,
+        marginBottom: 100
+    },
+    TextView: {
+        marginStart: 25,
+        flex: 18
     },
     TextStyle: {
         fontSize: 16,
-        marginStart: 15,
-        marginEnd: 20
+        flexDirection: 'row',
+        alignSelf: 'flex-start',
+        marginBottom: 15
     },
     MessageView: {
-        marginTop: 13,
-        marginStart: 15,
-        marginBottom: 60
+       flexDirection: 'row',
+       alignSelf: 'flex-start'
     },
     MessageStyle: {
         fontSize: 14,
         color: 'silver'
     },
     LogRegView: {
-        marginStart: 30,
-        marginEnd: 30,
-        justifyContent: 'space-between',
+        justifyContent: 'space-around',
         flexDirection: 'row',
-        marginTop: 120
+        flexGrow: 3
     },
     LineStyle: {
         width: 65, 
         height: 3, 
         backgroundColor: 'red', 
         borderRadius: 15, 
-        // marginLeft: 14
     },
     LineStyleLog: {
         width: 60, 
@@ -76,7 +80,6 @@ const styles = StyleSheet.create({
         backgroundColor: 'red', 
         borderRadius: 15,
         marginEnd: 15
-        
     }
 });
 
