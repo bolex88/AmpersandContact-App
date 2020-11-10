@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleSheet, View, Text, Image, TouchableOpacity } from 'react-native';
-import { FontAwesome5, AntDesign, Entypo, Feather, SimpleLineIcons, EvilIcons } from '@expo/vector-icons';
+import { Ionicons, AntDesign, Entypo, Feather, SimpleLineIcons, EvilIcons } from '@expo/vector-icons';
 import { Avatar } from 'react-native-elements';
 
 function DetailsScreen({ navigation }) {
@@ -15,9 +15,15 @@ function DetailsScreen({ navigation }) {
     return (
         <View>
             <View style={styles.NevContainer}>
-                <TouchableOpacity onPress={() => navigation.navigate('Details')}>
+                <TouchableOpacity onPress={() => navigation.navigate('Details', {
+                     uri: navigation.getParam('uri', 'image'),
+                     newName: navigation.getParam('newName', 'username'), 
+                     newRole: navigation.getParam('newRole', 'userrole'),
+                     newEmail: navigation.getParam('newEmail', 'useremail'),
+                     newPhone: navigation.getParam('newPhone', 'userphone'),
+                })}>
                     <View style={styles.FontStyle}>
-                    <AntDesign name="arrowleft" size={30} color="white" />
+                    <Ionicons name="ios-arrow-round-back" size={40} color="white" />
                     </View>
                 </TouchableOpacity>
                 <View style={styles.ProfText}>
@@ -30,7 +36,7 @@ function DetailsScreen({ navigation }) {
                     size="large"
                     title="JS"
                     rounded
-                    source={{uri:uri}}
+                    source={require('../../assets/photo/beach.jpg')}
                 />
                 <View style={styles.AvaterText}>
                     <Text style={styles.AvaterTextStyle}>{(navigation.getParam('newName', 'username'))}</Text>
