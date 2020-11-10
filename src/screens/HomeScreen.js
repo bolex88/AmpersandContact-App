@@ -12,7 +12,7 @@ function HomeScreen({  navigation }) {
     const uri = navigation.getParam('uri');
     // console.log(newPhone);
     return (
-    <View>
+    <View style={styles.ContainerView}>
         <View style={styles.NavContainer}>
             <View style={styles.LogoText}>
                 <Text style={styles.TextLogo}>AMPERSAND</Text>
@@ -48,21 +48,19 @@ function HomeScreen({  navigation }) {
                 
             </View>
             <View style={styles.UserView}>
-                {/* <Avatar
+                <Avatar
                 size="medium"
                 title="MT"
                 rounded
-                source={{ uri: uri }}
-                /> */}
-                <Image>
-                    {(navigation.getParam('uri', 'image'))}
-                </Image>
+                source={require('../../assets/photo/beach.jpg')}
+                />
             <View style={styles.UserText}>
                 <Text>{(navigation.getParam('newName', 'username'))}</Text>
                 <Text>{(navigation.getParam('newRole', 'userrole'))}</Text>
             </View>
             </View>
         </View>
+        <View style={styles.LineStyle}/>
         <View style={styles.QRScanView}>
             <Text>Want to add a new connection?</Text>
             <TouchableOpacity onPress={() => navigation.navigate('ScanScreen')}>
@@ -74,9 +72,12 @@ function HomeScreen({  navigation }) {
 }
 
 const styles = StyleSheet.create({
+    ContainerView: {
+        flex: 1,
+        backgroundColor: 'white'
+    },
     NavContainer: {
         backgroundColor: 'red',
-        marginBottom: 20,
         height: 90,
         justifyContent: 'space-between',
         flexDirection: 'row'
@@ -96,24 +97,22 @@ const styles = StyleSheet.create({
     },
     BodyView: {
         borderBottomColor: 'white',
-        // marginBottom: 40,
         padding: 2,
         borderBottomWidth: 2,
-        backgroundColor: 'white'
+        backgroundColor: 'white',
+        
     },
     HeadTextView: {
+        marginTop: 25,
         marginBottom: 10,
-        marginLeft: 25,
-        marginRight: 30
+        marginStart: 25,
     },
     InfoText: {
-        fontSize: 18
+        fontSize: 18,
     },
     TextView: {
-        marginBottom: 30,
-        marginLeft: 25,
-        marginRight: 30
-
+        marginBottom: 25,
+        marginStart: 25
     },
     QRText: {
         fontSize: 20,
@@ -121,13 +120,12 @@ const styles = StyleSheet.create({
     },
     QRView: {
         alignSelf: 'center',
-        marginTop: 15,
         marginBottom: 5
     },
     UserView: {
-        marginTop: 40,
-        marginLeft: 25,
-        marginBottom: 30,
+        marginTop: 20,
+        marginStart: 25,
+        marginBottom: 25,
         flexDirection: 'row'
     },
     UserText: {
@@ -135,16 +133,21 @@ const styles = StyleSheet.create({
         marginTop: 8,
         color: 'black'
     },
+    LineStyle: {
+        width: 1000, 
+        height: 2, 
+        backgroundColor: 'lightgray', 
+        borderRadius: 15, 
+        
+    },
     QRScanView: {
         flexDirection: 'row',
-        marginLeft: 25,
-        marginRight: 15,
-        marginTop: 15,
-        marginBottom: 10
+        justifyContent: 'space-around',
+        marginVertical: 15,
     },
     ScanText: {
         borderColor: 'red',
-        borderWidth: 2,
+        borderWidth: 3,
         padding: 1,
         textAlign: 'center',
         color: 'red',
