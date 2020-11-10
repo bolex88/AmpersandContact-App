@@ -1,6 +1,7 @@
 import React from 'react';
-import { StyleSheet, Text, TextInput, View, TouchableOpacity, Image, AsyncStorage } from 'react-native';
-import { AntDesign } from '@expo/vector-icons';
+import { StyleSheet, Text, TextInput, View, 
+TouchableOpacity, Image, AsyncStorage } from 'react-native';
+import { Ionicons } from '@expo/vector-icons';
 
 export default class LoginScreen extends React.Component {
     constructor() {
@@ -26,7 +27,7 @@ export default class LoginScreen extends React.Component {
             <View style={styles.NevContainer}>
                 <TouchableOpacity onPress={() => this.props.navigation.navigate('WelcomeScreen')}>
                     <View style={styles.FontStyle}>
-                        <AntDesign name="arrowleft" size={30} color="white" />
+                        <Ionicons name="ios-arrow-round-back" size={40} color="white" />
                     </View>
                 </TouchableOpacity>
                 <View style={styles.SignText}>
@@ -34,7 +35,7 @@ export default class LoginScreen extends React.Component {
                 </View>
             </View>
 
-            <View>
+            <View style={styles.ImageView}>
                 <Image 
                     source={require('../../assets/img/sunken-lounge.jpg')}
                 />
@@ -86,22 +87,24 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         
     },
+    TextSign: {
+        fontSize: 20,
+        color: 'white'
+    },
+    ImageView: {
+        marginBottom: 60
+    },
     FontStyle: {
         marginTop: 45,
-        marginLeft: 15,
+        marginStart: 15,
     },
     SignText: {
         marginTop: 45,
         marginRight: 150,
     },
-    TextSign: {
-        fontSize: 20,
-        color: 'white'
-    },
     ImputView: {
-        marginTop: 60,
-        marginLeft: 15,
-        marginRight: 20
+        marginStart: 15,
+        marginEnd: 15
     },
     EmailView: {
         flexDirection: 'row',
@@ -122,15 +125,15 @@ const styles = StyleSheet.create({
     },
     SignButton: {
         backgroundColor: 'red',
-        marginRight: 20,
-        marginLeft: 15,
+        marginEnd: 15,
+        marginStart: 15,
         marginTop: 20,
         marginBottom: 40,
         fontSize: 14,
         fontWeight: 'bold',
         borderColor: 'red',
-        borderWidth: 2,
-        padding: 5,
+        borderWidth: 3,
+        padding: 6,
         textAlign: 'center',
         color: 'white',
     },
