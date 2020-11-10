@@ -83,7 +83,7 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         marginLeft: 15,
         marginRight: 15,
-        marginTop: 110,
+        marginTop: 10,
         marginBottom: 20
   },
   ScanText: {
