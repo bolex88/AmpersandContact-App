@@ -5,7 +5,10 @@ import Logo from '../component/logo';
 function Welcome({ navigation }) {
     return (
         <View style={styles.ContainerView}>
-            <Logo />
+            <View style={styles.LogoView}>
+                <Logo />
+            </View>
+            
             <View style={styles.CompanyView}>
                 <Text style={styles.CompanyText}>AMPERSAND</Text>
                 <Text style={styles.CompanyText}>CONTACTS</Text>
@@ -17,7 +20,6 @@ function Welcome({ navigation }) {
                    <Text style={styles.StartedText}>GET STARTED</Text> 
                     <View style={styles.StartedLine} />
                 </TouchableOpacity>
-               
             </View>
         </View>
     );
@@ -25,35 +27,29 @@ function Welcome({ navigation }) {
 
 const styles = StyleSheet.create({
     ContainerView: {
-        backgroundColor: 'white'
+        backgroundColor: 'white',
+        flex: 2,
+        alignItems: 'center'
     },
-    // LogoView: {
-    //     alignItems: 'center',
-    //     // flexDirection: 'row'
-    //     // marginTop: 60,
-    //     // marginBottom: 50
-    // },
-    // LogoText: {
-    //     fontSize: 24,
-    //     fontWeight: 'bold',
-    //     marginTop: 120,
-    //     marginBottom: 90
-    // },
+    LogoView: {
+        marginBottom: 40
+    },
     CompanyView: {
-        alignItems: 'center',
-        marginTop: 60,
-        marginBottom: 160,
-
+        flexDirection: 'column',
+        alignSelf: 'center',
+        flex: 2,
     },
     CompanyText: {
-        fontSize: 18,
+        fontSize: 20,
+        textAlign: 'center',
     },
     StartedView: {
-        alignItems: 'center',
-        marginBottom: 160
+        alignSelf: 'center',
+        flexDirection: 'row',
+        flex: 1
     },
     StartedText: {
-        fontSize: 14
+        fontSize: 15
     },
     StartedLine: {
         width: 80, 
