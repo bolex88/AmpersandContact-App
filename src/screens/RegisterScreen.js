@@ -3,7 +3,7 @@ import {
   StyleSheet, Text, TextInput, 
   View, TouchableOpacity, ScrollView, 
   ImageBackground, Image, AsyncStorage } from 'react-native';
-import { FontAwesome5, AntDesign } from '@expo/vector-icons';
+import { FontAwesome5, AntDesign, Ionicons  } from '@expo/vector-icons';
 import * as ImagePicker from 'expo-image-picker';
 import Constants from 'expo-constants';
 import * as Permissions from 'expo-permissions';
@@ -55,7 +55,7 @@ export default class RegisterScreen extends React.Component {
               <View style={styles.NevContainer}>
                 <TouchableOpacity onPress={() => this.props.navigation.navigate('WelcomeScreen')}>
                     <View style={styles.FontStyle}>
-                    <AntDesign name="arrowleft" size={30} color="white" />
+                    <Ionicons name="ios-arrow-round-back" size={40} color="white" />
                     </View>
                 </TouchableOpacity>
                 <View style={styles.RegText}>
@@ -66,7 +66,7 @@ export default class RegisterScreen extends React.Component {
             <ImageBackground source={{ uri: image }} 
                         style={{ width: 360, height: 200 }}>
                 <AntDesign style={styles.FontPhoto} 
-                    name="user" size={60} color="red" />
+                    name="user" size={40} color="red" />
                 <Text style={styles.PhotoText} 
                 onPress={this._pickImage}>ADD PROFILE PHOTO</Text>
             </ImageBackground>
@@ -190,7 +190,7 @@ const styles = StyleSheet.create({
     },
     FontStyle: {
         marginTop: 40,
-        marginLeft: 15,
+        marginStart: 15
        
     },
     RegText: {
@@ -215,13 +215,12 @@ const styles = StyleSheet.create({
         color: 'red',
         fontSize: 16,
         marginTop: 5,
-        marginBottom: 50,
+        marginBottom: 25,
         alignSelf: 'center'
     },
     RegInfoView: {
-        marginTop: 40,
-        marginLeft: 15,
-        marginRight: 20,
+        marginStart: 15,
+        marginEnd: 15,
         marginBottom: 6
     },
     PlaceView: {
@@ -236,9 +235,9 @@ const styles = StyleSheet.create({
     },
     RegButton: {
         backgroundColor: 'red',
-        marginRight: 20,
-        marginLeft: 15,
-        marginTop: 20,
+        marginEnd: 15,
+        marginStart: 15,
+        marginTop: 5,
         marginBottom: 40,
         fontSize: 14,
         fontWeight: 'bold',
