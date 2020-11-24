@@ -209,14 +209,16 @@ const styles = StyleSheet.create({
     // },
     FontPhoto: {
         marginTop: 30,
-        alignSelf: 'center'
+        alignSelf: 'center',
+        justifyContent: 'center'
     },
     PhotoText: {
         color: 'red',
         fontSize: 16,
         marginTop: 5,
-        marginBottom: 25,
-        alignSelf: 'center'
+        marginBottom: 10,
+        alignSelf: 'center',
+        justifyContent: 'space-around'
     },
     RegInfoView: {
         marginStart: 15,
@@ -226,7 +228,7 @@ const styles = StyleSheet.create({
     PlaceView: {
         flexDirection: 'row',
         justifyContent: 'space-between',
-        marginBottom: 18,
+        marginBottom: 16,
         borderBottomColor: 'silver',
         borderBottomWidth: 1,
     },
@@ -238,7 +240,7 @@ const styles = StyleSheet.create({
         marginEnd: 15,
         marginStart: 15,
         marginTop: 5,
-        marginBottom: 40,
+        marginBottom: 30,
         fontSize: 14,
         fontWeight: 'bold',
         borderColor: 'red',
