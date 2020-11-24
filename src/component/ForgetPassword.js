@@ -26,7 +26,7 @@ export default class ForgetPassword extends Component {
     return (
         <View>
             <View style={styles.NevContainer}>
-                <TouchableOpacity onPress={() => this.props.navigation.navigate('WelcomeScreen')}>
+                <TouchableOpacity onPress={() => this.props.navigation.navigate('LoginScreen')}>
                     <View style={styles.FontStyle}>
                         <AntDesign name="arrowleft" size={30} color="white" />
                     </View>
