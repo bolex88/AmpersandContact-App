@@ -104,17 +104,18 @@ const styles = StyleSheet.create({
     },
     ImputView: {
         marginStart: 15,
-        marginEnd: 15
+        marginEnd: 15,
+        justifyContent: 'space-around',
     },
     EmailView: {
         flexDirection: 'row',
         justifyContent: 'space-between',
-        marginBottom: 13,
+        marginBottom: 10,
         borderBottomColor: 'silver',
         borderBottomWidth: 1,
     },
     EmailText: {
-        textAlign: 'right'
+        textAlign: 'right',
     },
      PassView: {
         flexDirection: 'row',
