@@ -11,6 +11,7 @@ function HomeScreen({  navigation }) {
     const newPhone = navigation.getParam('newPhone');
     const uri = navigation.getParam('uri');
     // console.log(newPhone);
+    
     return (
     <View style={styles.ContainerView}>
         <View style={styles.NavContainer}>
