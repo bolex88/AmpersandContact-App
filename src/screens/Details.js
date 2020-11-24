@@ -43,13 +43,15 @@ function Details({ navigation }) {
             </View>
 
             <View style={styles.ContactsView}>
-                <SimpleLineIcons style={styles.ContactView} name="phone" size={20} color="black"
-                > {(navigation.getParam('newPhone', 'userphone'))}
+                <SimpleLineIcons style={styles.ContactView} name="phone" size={20} color="black"> 
+                    {(navigation.getParam('newPhone', 'userphone'))}
                 </SimpleLineIcons> 
-                <SimpleLineIcons style={styles.ContactView} name="envelope" size={20} color="black"
-                > {(navigation.getParam('newEmail', 'useremail'))}
+                <SimpleLineIcons style={styles.ContactView} name="envelope" size={20} color="black"> 
+                    {(navigation.getParam('newEmail', 'useremail'))}
                 </SimpleLineIcons>
-                <EvilIcons style={styles.ContactView} name="location" size={20} color="black"> New Georgia Estate</EvilIcons>
+                <EvilIcons style={styles.ContactView} name="location" size={20} color="black"> 
+                    New Georgia Estate
+                </EvilIcons>
             </View>
         </View>
     );
