@@ -43,7 +43,7 @@ const styles = StyleSheet.create({
     imagestyle: {
         maxHeight: 240,
         maxWidth: 300,
-        marginBottom: 100
+        marginBottom: 100,
     },
     TextView: {
         marginStart: 25,
@@ -75,11 +75,11 @@ const styles = StyleSheet.create({
         borderRadius: 15, 
     },
     LineStyleLog: {
-        width: 60, 
+        width: 53, 
         height: 3, 
         backgroundColor: 'red', 
         borderRadius: 15,
-        marginEnd: 15
+       
     }
 });
 
