@@ -15,13 +15,7 @@ function DetailsScreen({ navigation }) {
     return (
         <View>
             <View style={styles.NevContainer}>
-                <TouchableOpacity onPress={() => navigation.navigate('Details', {
-                     uri: navigation.getParam('uri', 'image'),
-                     newName: navigation.getParam('newName', 'username'), 
-                     newRole: navigation.getParam('newRole', 'userrole'),
-                     newEmail: navigation.getParam('newEmail', 'useremail'),
-                     newPhone: navigation.getParam('newPhone', 'userphone'),
-                })}>
+                <TouchableOpacity onPress={() => navigation.navigate('HomeScreen')}>
                     <View style={styles.FontStyle}>
                     <Ionicons name="ios-arrow-round-back" size={40} color="white" />
                     </View>
